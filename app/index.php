@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
-require __DIR__ . "/views/template.php"; // Use autoload next time
 
 $app = new \Slim\Slim();
 $app->view->setTemplatesDirectory(__DIR__ . "/views");
@@ -14,4 +13,3 @@ $app->get('/(:layout)(/)', function ($layout="feed") use ($app) {
 });
 
 $app->run();
-

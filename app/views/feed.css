@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700,700italic,500italic,400italic,300italic&subset=latin,cyrillic);
+/*For IE*/
+aside, footer, header, section { 
+	display: block;
+}
+
+html, header, body, footer {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background: none repeat scroll 0 0 #ffffff;
+    letter-spacing: 0;
+    line-height: 1.5;
+    overflow: visible;
+}
+
+
+.wrapper {
+	width: 100%;
+	min-width: 450px;
+	padding: 20px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	
+}
+/*Header*/
+
+header {
+	background-color: #fff;
+	position: relative;
+	width: 100%;
+	color: #8d8e8e;
+	z-index: 1;
+	margin: 0 auto;
+}
+
+
+h1.header_title {
+	color: #8d8e8e;
+	text-decoration: none;
+	font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	cursor: pointer;
+	font-weight: 300;
+}
+
+h1.header_title:hover {
+	color: #2e2e2e;
+}
+
+/*Body Content*/
+
+.blog_list_header {
+	background-color: #f0f2f3;
+}
+
+.blog_list_header > .wrapper {
+	padding: 40px 20px;
+}
+
+.blog_list_title {
+	font-size: 26px;
+	color: #000;
+	font-weight: 300;
+}
+
+.post_block-title {
+	font-size: 20px;
+	color: #000;
+	font-weight: 300;
+	padding-bottom: 20px;
+}
+
+.post_block-content {
+	font-size: 16px;
+	text-align: justify;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}

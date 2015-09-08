@@ -19,12 +19,12 @@
 	</head>
 	<body>
 		<header> 
-			<div class="wrapper">
+			<div class="wrapper clearfix">
 				<div class="header_left-wrapper">
 					<h1 class="header_title">There is gonna be some blog name sometimes</h1>
 				</div>
 				<div class="header_right-wrapper">
-					<a class="button_grey login" href="/login">Login</a>
+					<a class="button_reg login" href="/login">Login</a>
 				</div>
 			</div>
 		</header>

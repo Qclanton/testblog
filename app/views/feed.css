@@ -21,8 +21,13 @@ body {
 	min-width: 450px;
 	padding: 20px;
 	margin: 0 auto;
-	box-sizing: border-box;
-	
+	box-sizing: border-box;	
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 /*Header*/
 
@@ -33,6 +38,13 @@ header {
 	color: #8d8e8e;
 	z-index: 1;
 	margin: 0 auto;
+}
+
+.header_left-wrapper {
+	min-width: 150px;
+	display: inline-block;
+	max-width: 450px;
+	width: 35%;
 }
 
 
@@ -48,6 +60,42 @@ h1.header_title {
 h1.header_title:hover {
 	color: #2e2e2e;
 }
+
+.header_right-wrapper {
+	display: inline-block;
+	float: right;
+	text-align: right;
+	max-width: 450px;
+	min-width: 150px;
+	width: 40%;
+	
+}
+
+.button_reg,
+.button_reg.login {
+	border: 1px solid #0d4e80;
+	border-radius: 3px;
+	box-sizing: border-box;
+	color: #0d4e80;
+	display: block;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1;
+	padding: 5px 20px;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	max-width: 250px;
+}
+.header_right-wrapper > .button_reg.login {
+	float: right;
+}
+.button_reg:hover,
+.button_reg.login:hover {
+	color: #fff;
+	background-color: #0d4e80;
+}
+
 
 /*Body Content*/
 
@@ -67,7 +115,7 @@ h1.header_title:hover {
 
 .post_block-title {
 	font-size: 20px;
-	color: #000;
+	color: #0d4e80;
 	font-weight: 300;
 	padding-bottom: 20px;
 }

@@ -31,7 +31,7 @@
 		
 		<section class="blog_list_header">
 			<div class="wrapper">
-				<h1 class="blog_list_title">Blog list </h1>
+				<h1 class="blog_list_title">Feed </h1>
 			</div>
 		</section>
 		<section>

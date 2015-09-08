@@ -6,6 +6,7 @@ aside, footer, header, section {
 
 html, header, body, footer {
 	font-family: 'Ubuntu', sans-serif;
+	color: #444041;
 }
 
 body {
@@ -115,7 +116,7 @@ h1.header_title:hover {
 
 .post_block-title {
 	font-size: 20px;
-	color: #0d4e80;
+	color: #2d2c44;
 	font-weight: 300;
 	padding-bottom: 20px;
 }

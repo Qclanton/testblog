@@ -46,6 +46,8 @@ header {
 	display: inline-block;
 	max-width: 450px;
 	width: 35%;
+	vertical-align: top;
+	float: left;
 }
 
 
@@ -63,13 +65,12 @@ h1.header_title:hover {
 }
 
 .header_right-wrapper {
-	display: inline-block;
 	float: right;
 	text-align: right;
 	max-width: 450px;
 	min-width: 150px;
 	width: 40%;
-	
+	vertical-align: top;
 }
 
 .button_reg,

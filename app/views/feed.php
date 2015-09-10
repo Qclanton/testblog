@@ -1,21 +1,8 @@
-<?
-	$post = [
-		[
-			'title'=>'Title Test',
-			'text'=>'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-		],
-		[
-			'title'=>'Title Test2',
-			'text'=>'oloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-		]
-	];
-?>
-
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="views/reset.css" />
-		<link rel="stylesheet" type="text/css" href="views/feed.css" />
+		<link rel="stylesheet" type="text/css" href="Views/reset.css" />
+		<link rel="stylesheet" type="text/css" href="Views/feed.css" />
 	</head>
 	<body>
 		<header> 
@@ -36,30 +23,15 @@
 		</section>
 		<section>
 			<div class="wrapper">
-				<? foreach($post as $post_block){ ?>
+				<? foreach($posts as $post){ ?>
 				<article class="post_block">
-					<? if (!empty($post_block['title'])) {   ?>
 					<h1 class="post_block-title">
-						<?=$post_block['title']  ?>
-					</h1>
-					<? } else { ?>
-					<h1 class="post_block-title">
-						There is no title
-					</h1>
-					<? } ?>
+                        <?=$post->title  ?>
+                    </h1>
 					
 					<div class="post_block-content">
-					<? if (!empty($post_block['text'])) {   ?>
-						<p>
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-						</p>
-					<? } else { ?>
-						<p>
-							There is no content
-						</p>
-					<? } ?>
-					</div>
-					
+						<p><?= $post->text ?></p>
+					</div>					
 				</article>
 				<? } ?>
 			</div>
@@ -71,4 +43,3 @@
 		</footer>
 	</body>
 </html>
-

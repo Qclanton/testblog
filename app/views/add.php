@@ -8,9 +8,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="views/reset.css" />
-		<link rel="stylesheet" type="text/css" href="views/feed.css" />
-		<link rel="stylesheet" type="text/css" href="views/add.css" />
+		<link rel="stylesheet" type="text/css" href="Views/reset.css" />
+		<link rel="stylesheet" type="text/css" href="Views/feed.css" />
+		<link rel="stylesheet" type="text/css" href="Views/add.css" />
 	</head>
 	<body>
 		<header> 

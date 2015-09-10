@@ -37,10 +37,10 @@
 	margin: 5px 0;
 	resize: none;
 }
-.blog_post-new > p > input:hover,
+.blog_post-new > p:first-child > input:hover,
 .blog_post-new > p > textarea:hover {
 	background-color: #fff;
-	cursor: pointer;
+	cursor: text;
 }
 
 .button_input {
@@ -60,4 +60,5 @@
 	border: 1px solid #0d4e80;
 	background-color: #fff;
 	color: #0d4e80;
+	cursor: pointer;
 }

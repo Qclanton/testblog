@@ -4,11 +4,24 @@ require __DIR__ . "/../vendor/autoload.php";
 
 $app = new \Slim\Slim(['debug'=>true]);
 $app->view->setTemplatesDirectory(__DIR__ . "/Views");
+$app->database = new Testblog\Libs\Qdata\Mysql("localhost", "root", "111222", "testblog");
 
-// Just render template
-$app->get('/(:layout)(/)', function ($layout="feed") use ($app) {
+
+$app->post("/set(/)", function() use ($app) {
+    $Posts = new \Testblog\Structures\Posts($app->database);
+    $Posts->set($app->request->post('post'));
+    $app->redirect("/");
+    // $post = $app->request->post('post');
+    // echo "<pre>"; var_dump($app); echo "<pre>";
+   //var_dump($post);
+});
+
+
+
+
+$app->get("/(:layout)(/)", function ($layout="feed") use ($app) {
     if ($layout === "test") {
-        $Database = new Testblog\Libs\Qdata\Mysql("localhost", "root", "111222", "testblog");
+        $Database = $app->database;
         // echo "<pre>"; var_dump($Database); echo "<pre>";
         
         /*
@@ -78,5 +91,8 @@ $app->get('/(:layout)(/)', function ($layout="feed") use ($app) {
         } 
     }
 });
+
+
+
 
 $app->run();

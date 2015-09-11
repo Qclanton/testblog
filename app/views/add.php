@@ -34,12 +34,12 @@
 		</section>
 		<section>
 			<div class="wrapper">
-				<form action="feed.php" method="post" class="blog_post-new">
+				<form action="/set" method="post" class="blog_post-new">
 					<p>
-						<input name="blog_post[title]" placeholder="Post Title">
+						<input name="post[title]" placeholder="Post Title">
 					</p>
 					<p>
-						<textarea rows="15" name="text"></textarea>
+						<textarea name="post[text]" rows="15" name="text"></textarea>
 					</p>
 					<p>
 						<input type="submit" value="Send" class="button_input">

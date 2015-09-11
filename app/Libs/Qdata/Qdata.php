@@ -6,6 +6,7 @@ abstract class Qdata
     protected $Database;
     
     protected $table;
+    protected $fields;
     protected $primary_field;
     protected $deleted_field;
     
@@ -13,6 +14,7 @@ abstract class Qdata
     
     
     // Default values to implement Structure
+    public function getFields() {}
     public function getTableName() 
     {
         return ""; 
@@ -50,6 +52,7 @@ abstract class Qdata
         $this->Database = $Database;
         
         $this->table = $this->getTableName();
+        $this->fields = $this->getFields();
         $this->primary_field = $this->getPrimaryField();
         $this->setDeletedField();
     }
@@ -65,34 +68,35 @@ abstract class Qdata
     // Set functions
     public function set($data) 
     {
-        $result = (is_object($data) ? $this->setOne($data) : $this->setFew($data));
+        $result = (is_array($data) && array_values($data) === $data
+            ? $this->setFew($data)
+            : $this->setOne($data)
+        );
         
         return $result;
     }
     
     private function setOne($exemplar) 
     {
-        $return_id = true;
-        $exemplar = (object)$exemplar;
+        $return_id = true;       
+        $exemplar = $this->createExemplarFromRaw($exemplar);
         
         if (!empty($exemplar->{$this->primary_field})) {
             $return_id = false;
+            /*
             $existed = $this->get($exemplar->{$this->primary_field});
 
             if (!empty($existed)) {
                 $exemplar = array_merge((array)$existed, (array)$exemplar);
             }
+            * */
         }
         
-        $exemplar = $this->Structure->createExemplarFromRaw($exemplar);
-        $prepared = $this->prepareInsert($exemplar);
         
+        list ($query, $vars) = $this->prepareInsert($exemplar);  
+        $result = $this->Database->execute($query, $vars);
         
-        $query = "INSERT INTO `{$this->table}` VALUES ({$prepared->query_add})";
-        $query .= " ON DUPLICATE KEY UPDATE {$prepared->query_replace}"; 
-        
-
-        $result = $this->Db->execute($query, $prepared->vars);        
+          
         return ($result && $return_id) ? $this->getLastId() : $result;
     }
     
@@ -150,39 +154,34 @@ abstract class Qdata
     
     
     // Mysql part 
-    private function prepareInsert($exemplar) {
-        $structure_fields = $this->Structure->getFields();
-        
-        $vars_add = []; 
-        $vars_replace = [];
+    private function prepareInsert($exemplar) 
+    {
+        $fields = $this->fields;
+        $query_fields = "";      
         $query_add = "";
         $query_replace = "";
-        $i=1;        
-            
-        foreach ($structure_fields as $field=>$params) {
-            if ($params->type === "bool") { $exemplar->{$field} = intval($exemplar->{$field}); }
-            
-            $query_add .= "?"; 
-            if ($i < count((array)$structure_fields)) { 
-                $query_add .= ", "; 
-            }
-                                    
-            $vars_add[] = [$exemplar->{$field}=>$this->getPreparedStatementType($params)];    
-            
+        
+        foreach ($fields as $i=>$field) {
+            if ($field !== $this->primary_field) {
+                $query_fields .= "`{$field}`";
+                $query_add .= "?";
+                $query_replace .= "`{$field}`=?"; 
                 
-            if ($params->editable) {
-                $query_replace .= "`{$field}`=?"; if ($i < count((array)$structure_fields)) { $query_replace .= ", "; }                        
-                $vars_replace[] = ['type'=>$this->getPreparedStatementType($params), 'value'=>$exemplar->{$field}];    
-            }
-            
-            $i++;
+                if ($i+1 < count($fields)) { 
+                    $query_fields .= ", "; 
+                    $query_add .= ", "; 
+                    $query_replace .= ", "; 
+                }
+                
+                $vars_add[] = $exemplar->{$field};
+                $vars_replace[] = $exemplar->{$field};
+            }                        
         }
         
-        return (object)[
-            'query_add' => $query_add, 
-            'query_replace' => $query_replace,
-            'vars' => array_merge($vars_add, $vars_replace)
-        ];        
+        $query = "INSERT INTO `{$this->table}` ({$query_fields}) VALUES ({$query_add})";
+        $query .= " ON DUPLICATE KEY UPDATE {$query_replace}"; 
+        
+        return [$query, array_merge($vars_add, $vars_replace)];        
     }
     
     private function createQuery(Criterion $criterion, $action="select") 
@@ -416,6 +415,6 @@ abstract class Qdata
     }
     
     public function getLastId() {
-        return $this->Db->getValue("SELECT LAST_INSERT_ID()");
+        return $this->Database->getValue("SELECT LAST_INSERT_ID()");
     }
 }

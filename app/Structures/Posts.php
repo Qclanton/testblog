@@ -4,8 +4,8 @@ namespace Testblog\Structures;
 use \Testblog\Libs\Qdata\Qdata;
 use \Testblog\Libs\Qdata\Structure;
 
-class Posts extends Qdata implements Structure
-{
+class Posts extends Qdata implements Structure 
+{   
     public function getFields() 
     {
         return ["id", "title", "text"];

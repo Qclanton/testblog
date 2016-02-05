@@ -39,6 +39,9 @@
 						<input name="post[title]" placeholder="Post Title">
 					</p>
 					<p>
+						<input name="post[tags]" placeholder="Post Tags">
+					</p>
+					<p>
 						<textarea name="post[text]" rows="15" name="text"></textarea>
 					</p>
 					<p>

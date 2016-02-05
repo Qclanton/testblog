@@ -1,0 +1,102 @@
+/*Styles for blog*/
+
+
+/*Header*/
+
+header nav.navbar {
+	background-color: #323946;
+	border-radius: 0;
+	
+}
+
+header button.navbar-toggle {
+	background-color: #fff;
+	padding: 5px 10px;
+}
+
+header nav.navbar .brand {
+	color: #fff;
+	
+}
+
+.navbar-brand, .navbar-nav > li > a {
+	text-shadow: none !important;
+	color: #fff;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+	background-color: #323946;
+	color: #2a88bd;
+}
+
+
+/*Header Ends*/
+
+
+/*Aside*/
+
+.content .panel {
+	border: 1px solid #d3e0e9;
+}
+
+/*Left aside styles ends*/
+/*Articles blocks*/
+
+
+
+.post_block {
+	border: 1px solid #d3e0e9;
+	padding: 20px;
+	margin-bottom: -1px;
+}
+
+
+.posts_blocks .post_block:first-child {
+	border-radius: 2px 2px 0 0;
+	
+}
+.posts_blocks .post_block:last-child {
+	border-radius: 0 0 2px 2px;
+}
+
+/*Post Inside Content*/
+
+.post_block-title {
+	margin-bottom: 10px;
+}
+
+.post_block-title h1 {
+	font-size: 14px;
+	font-weight: 600;
+	font-family: "Open Sans",Arial,sans-serif;
+	margin-top: 0;
+}
+.post_block-title h1 a {
+	color: #333;
+}
+	
+.post_block-title time {
+	font-size: 85%;
+	color: #9da9b0;
+}
+
+
+.post_block-info_line {
+	color: #2a88bd;
+	padding-top: 20px;
+	margin-top: 10px;
+	border-top: 1px solid #d3e0e9;
+}
+
+.post_block-info_line span {
+	font-size: 90%;
+	margin-top: 2px;
+	padding-right: 5px;
+}
+
+
+
+
+
+
+

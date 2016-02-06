@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header>
@@ -24,17 +26,17 @@
 						<span class="sr-only">Toggle navigation</span>
 						<span class="glyphicon glyphicon-align-justify"></span>
 					</button>
-					<a class="navbar-brand" href="#">Blog</a>
+					<a class="navbar-brand" href="/">Blog</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="#">Blog</a>
+							<a href="/">Blog</a>
 						</li>
 						<li>
-							<a href="#">Add Post</a>
+							<a href="add">Add Post</a>
 						</li>
 						<li>
 							<a href="#">Link</a>
@@ -96,7 +98,7 @@
 								</div>
 								<div class="post_block-info_line text-right">
 									<a href="/">
-									  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 5
+									  5 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 									</a>
 								</div>
 							</div>					
@@ -112,6 +114,11 @@
 							<p> Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
 						</div>
 					</div>
+					<div class="panel">
+						<div class="panel-body">
+							<p> &copy <?php echo date('Y'); ?>  VividCrest </p>
+						</div>
+					</div>
 
 				</div>
 			</div>	
@@ -120,7 +127,7 @@
 	
 	<footer>
 		<div class="wrapper">
-			Copyright 2016
+			
 		</div>
 	</footer>
 </body>

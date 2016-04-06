@@ -4,7 +4,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 $app = new \Slim\Slim(['debug'=>true]);
 $app->view->setTemplatesDirectory(__DIR__ . "/Views");
-$app->database = new Testblog\Libs\Qdata\Mysql("localhost", "root", "111222", "testblog");
+$app->database = new Testblog\Libs\Qdata\Mysql("localhost", "root", "111222", "testblog.qcldev.ru");
 
 
 $app->post("/set(/)", function() use ($app) {
@@ -70,7 +70,7 @@ $app->get("/(:layout)(/)", function ($layout="feed") use ($app) {
     } else { 
         if (in_array($layout, ["feed", "add"])) {
             // Backend
-            $Database = new Testblog\Libs\Qdata\Mysql("localhost", "root", "111222", "testblog");
+            $Database = new Testblog\Libs\Qdata\Mysql("localhost", "root", "111222", "testblog.qcldev.ru");
             $vars = [];
             
             switch ($layout) {

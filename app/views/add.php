@@ -1,4 +1,4 @@
-<?
+<?php
 	$user = [
 		'user_name' => 'UName Test',
 		'user_pic_url' => 'https://habrastorage.org/getpro/moikrug/uploads/user/100/006/031/1/avatar/medium_6393dc446c13261c138ae1c803cfefaf.jpg'

@@ -79,7 +79,7 @@
 					</div>
 				</div>
 				<div class="col-md-6 posts_blocks">
-					<? foreach($posts as $post){ ?>
+					<?php foreach($posts as $post){ ?>
 						<article class="post_block">
 							<div class="post_block-title row">
 								<h1 class="col-md-9">
@@ -103,7 +103,7 @@
 								</div>
 							</div>					
 						</article>
-					<? } ?>
+					<?php } ?>
 				</div>
 				<div class="col-md-3">
 					<div class="panel">
